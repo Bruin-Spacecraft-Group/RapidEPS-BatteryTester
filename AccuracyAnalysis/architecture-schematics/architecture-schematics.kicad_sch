@@ -202,7 +202,7 @@
       (reference "Q2") (unit 1) (value "Q_NMOS_GDS") (footprint "")
     )
     (path "/997b7e04-2ad8-4b2b-b19c-6c232748bb03/a61f526c-ecbc-4eb6-981f-f3db5b9ff351"
-      (reference "R2") (unit 1) (value "digipot") (footprint "")
+      (reference "R1") (unit 1) (value "digipot") (footprint "")
     )
     (path "/997b7e04-2ad8-4b2b-b19c-6c232748bb03/cf645ff9-6cea-4ed4-b081-fed77e09b77a"
       (reference "R2") (unit 1) (value "digipot") (footprint "")
@@ -211,7 +211,7 @@
       (reference "R3") (unit 1) (value "R_US") (footprint "")
     )
     (path "/997b7e04-2ad8-4b2b-b19c-6c232748bb03/3097f818-ff13-4732-9d62-f32007c55fcf"
-      (reference "U?") (unit 1) (value "Adjustable_LDO") (footprint "")
+      (reference "U1") (unit 1) (value "Adjustable_LDO") (footprint "")
     )
   )
 )
