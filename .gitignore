@@ -8,3 +8,6 @@
 **/.kicad_pro-bak
 **/.kicad_wks-bak
 **/.kicad_sym-bak
+**/*.aux
+**/*.log
+**/*.synctex.gz
