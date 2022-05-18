@@ -192,6 +192,9 @@
     (path "/997b7e04-2ad8-4b2b-b19c-6c232748bb03/7d4b5881-5b44-4eee-9597-5915739caf4b"
       (reference "BT1") (unit 1) (value "Battery_Cell") (footprint "")
     )
+    (path "/997b7e04-2ad8-4b2b-b19c-6c232748bb03/58d11641-1522-42ac-a107-730ac47b6bea"
+      (reference "D1") (unit 1) (value "DIODE") (footprint "")
+    )
     (path "/997b7e04-2ad8-4b2b-b19c-6c232748bb03/d3fc3360-ffa1-4769-b5ba-f6837dd1d2c3"
       (reference "MES1") (unit 1) (value "Voltmeter_DIO") (footprint "")
     )

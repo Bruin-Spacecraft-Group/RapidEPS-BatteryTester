@@ -6,6 +6,48 @@
 
 \begin{document}
 \maketitle
+\newpage
 \section{Naive Implementation}
-
+\subsection{Precision for Nominal Operation Control Modes}
+\subsubsection{Voltage}
+When the voltage is controlled without feedback, it has a relatively high error:\\
+If the tolerance of the adjustable LDO is given as a percentage, let that percentage be $e_{LDO}$. Otherwise, if the tolerance is given as a voltage, let that voltage be $\sigma_{LDO}$.\\
+The error of the digipot is typically a constant value: let the number of ohms which that value is be $\sigma_{pot}$.\\
+The error of the constant feedback resistor, as a percentage, is $e_{res}$.\\
+Because the microcontroller uses digital control, it does not introduce extra error.\\
+The current sensor induces a voltage drop of $\sigma_{Amm}$ volts which affects the ability of the tester to control the voltage across the batteries.\\
+We assume that the diode has a constant forward voltage, for simplicity. In fact, the diode will dampen the effects of mismatch between voltages that are in error and the battery voltage, but as the approximation of constant forward voltage improves, this dampening decreases. We understand that our result is slightly pessimistic, but not necessarily very much so.\\
+Assume the value of the output voltage is $V$, the resistance of the constant feedback resistor is $R_1$, and the resistance of the digipot is $R_{pot}$. The overall open-loop error is
+$$\sigma_V = V\sqrt{\left(V\cdot e_{LDO}\right)^{2}+\frac{R_{1}^2}{R_{pot}^2}\left(e_{res}^{2}+\left(\frac{\sigma_{pot}}{R_{pot}}\right)^{2}\right)+\sigma_{Amm}^2}$$
+$$\sigma_V = V\sqrt{\sigma_{LDO}^{2}+\frac{R_{1}^2}{R_{pot}^2}\left(e_{res}^{2}+\left(\frac{\sigma_{pot}}{R_{pot}}\right)^{2}\right)+\sigma_{Amm}^2}$$
+\\[12 pt]
+The error is somewhat improved when feedback is used to control the voltage. However, it is worth noting that for closed-loop feedback to correct errors, transient voltages at the level of the error must first occur. Once the correction becomes available, the limiting factor in precision is the limited number of existing voltage levels at which the battery can be driven.\\
+The distance between states of the digipot is typically a constant value: let the number of ohms which that value is be $\sigma_{pot}$.\\
+Assume the value of the output voltage is $V$, the resistance of the constant feedback resistor is $R_1$, and the resistance of the digipot is $R_{pot}$. The overall closed-loop error is
+$$\sigma_V = \frac{\sigma_{pot}V_{out}^{2}R_{1}}{R_{pot}^{2}+R_{1}R_{pot}}$$
+\subsubsection{Current}
+Making the same assumptions and assignments as we did to calculate voltage transient, the transient current-controlling ability of the circuit during charge is directly determined by the internal resistance of the battery and can be written in either of two forms.
+$$\sigma_I = \frac{\sigma_V}{R_{batt}} = \frac{V\sqrt{\left(V\cdot e_{LDO}\right)^{2}+\frac{R_{1}^2}{R_{pot}^2}\left(e_{res}^{2}+\left(\frac{\sigma_{pot}}{R_{pot}}\right)^{2}\right)+\sigma_{Amm}^2}}{R_{batt}}$$
+$$\sigma_I = \frac{\sigma_V}{R_{batt}} = \frac{V\sqrt{\sigma_{LDO}^{2}+\frac{R_{1}^2}{R_{pot}^2}\left(e_{res}^{2}+\left(\frac{\sigma_{pot}}{R_{pot}}\right)^{2}\right)+\sigma_{Amm}^2}}{R_{batt}}$$
+The sustained current-controlling ability of the circuit during charge is approximately determined by the hysteresis of the battery voltage. We assume that the voltage drop due to the internal resistance of the battery is dominated by the voltage drop due to hysteresis to simplify our calculation.\\
+We represent the current through the battery as $I_{batt}$ and the voltage sag as $V_{sag}$.
+$$\sigma_I = \frac{\delta I_{batt}}{\delta V_{sag}}\cdot \sigma_V = \frac{\delta I_{batt}}{\delta V_{sag}}\cdot \frac{\sigma_{pot}V_{out}^{2}R_{1}}{R_{pot}^{2}+R_{1}R_{pot}}$$
+In the case that the internal resistance term becomes significant and cannot be neglected, we  instead write the form
+$$\sigma_I = \frac{\frac{\delta I_{batt}}{\delta V_{sag}}}{R\frac{\delta I_{batt}}{\delta V_{sag}}+1}\cdot \sigma_V = \frac{\frac{\delta I_{batt}}{\delta V_{sag}}}{R\frac{\delta I_{batt}}{\delta V_{sag}}+1}\cdot \frac{\sigma_{pot}V_{out}^{2}R_{1}}{R_{pot}^{2}+R_{1}R_{pot}}$$
+\subsection{Precision for Standard Measurements}
+\subsubsection{SoC Measurement Precision}
+\subsubsection{Voltage Sag Measurement Precision}
+\subsubsection{Leakage Current Measurement Precision}
+\subsubsection{Internal Resistance Measurement Precision}
+\subsection{Simulation and Monitoring of  Environmental Effects}
+\subsubsection{Temperature}
+None
+\subsubsection{Vibration}
+None
+\subsection{Radiation Dose}
+None
+\subsection{High Energy Particles}
+None
+\subsection{Vacuum}
+None
 \end{document}
