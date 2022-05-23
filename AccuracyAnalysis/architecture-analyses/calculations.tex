@@ -7,6 +7,9 @@
 \begin{document}
 \maketitle
 \newpage
+\section{Introduction}
+This document attempts to calculate an error that can be achieved in different modes of operation of the batterry tester. A battery tester, feasibly, could attempt not only to monitor the activity of a battery, but to simulate nominal and nonstandard application and environmental conditions. Those simulated conditions can be simulated to a certain precision, and the measurements of the activity of the battery are limited to a certain precision. It is frequently possible to increase precision just by spending more money, but sometimes, significant precision improvements are possible through design changes. Calculating the relation between component error margins and overall system error margin is the goal of this paper, and the calculations done can serve to optimize design choice, such that spending on a battery tester system can efficiently give highly accurate data. Operating ranges are somewhat easier to calculate from component specifications and therefore, despite their importance, are not included here for succinctness.
+\newpage
 \section{Naive Implementation}
 \subsection{Precision for Nominal Operation Control Modes}
 \subsubsection{Voltage}
@@ -16,30 +19,54 @@ The error of the digipot is typically a constant value: let the number of ohms w
 The error of the constant feedback resistor, as a percentage, is $e_{res}$.\\
 Because the microcontroller uses digital control, it does not introduce extra error.\\
 The current sensor induces a voltage drop of $\sigma_{Amm}$ volts which affects the ability of the tester to control the voltage across the batteries.\\
-We assume that the diode has a constant forward voltage, for simplicity. In fact, the diode will dampen the effects of mismatch between voltages that are in error and the battery voltage, but as the approximation of constant forward voltage improves, this dampening decreases. We understand that our result is slightly pessimistic, but not necessarily very much so.\\
+We assume that the diode has a constant, known forward voltage, for simplicity. In fact, the diode will dampen the effects of mismatch between voltages that are in error and the battery voltage, but as the approximation of constant forward voltage improves, this dampening decreases. We understand that our result is slightly pessimistic, but not necessarily very much so.\\
 Assume the value of the output voltage is $V$, the resistance of the constant feedback resistor is $R_1$, and the resistance of the digipot is $R_{pot}$. The overall open-loop error is
-$$\sigma_V = V\sqrt{\left(V\cdot e_{LDO}\right)^{2}+\frac{R_{1}^2}{R_{pot}^2}\left(e_{res}^{2}+\left(\frac{\sigma_{pot}}{R_{pot}}\right)^{2}\right)+\sigma_{Amm}^2}$$
-$$\sigma_V = V\sqrt{\sigma_{LDO}^{2}+\frac{R_{1}^2}{R_{pot}^2}\left(e_{res}^{2}+\left(\frac{\sigma_{pot}}{R_{pot}}\right)^{2}\right)+\sigma_{Amm}^2}$$
+$$\sigma_V = \sqrt{\left(V\cdot e_{LDO}\right)^{2}+\frac{R_{1}^2}{R_{pot}^2}\left(e_{res}^{2}+\left(\frac{\sigma_{pot}}{R_{pot}}\right)^{2}\right)+\sigma_{Amm}^2}$$
+$$\sigma_V = \sqrt{\sigma_{LDO}^{2}+\frac{R_{1}^2}{R_{pot}^2}\left(e_{res}^{2}+\left(\frac{\sigma_{pot}}{R_{pot}}\right)^{2}\right)+\sigma_{Amm}^2}$$
 \\[12 pt]
 The error is somewhat improved when feedback is used to control the voltage. However, it is worth noting that for closed-loop feedback to correct errors, transient voltages at the level of the error must first occur. Once the correction becomes available, the limiting factor in precision is the limited number of existing voltage levels at which the battery can be driven.\\
 The distance between states of the digipot is typically a constant value: let the number of ohms which that value is be $\sigma_{pot}$.\\
 Assume the value of the output voltage is $V$, the resistance of the constant feedback resistor is $R_1$, and the resistance of the digipot is $R_{pot}$. The overall closed-loop error is
-$$\sigma_V = \frac{\sigma_{pot}V_{out}^{2}R_{1}}{R_{pot}^{2}+R_{1}R_{pot}}$$
+$$\sigma_V = \frac{\sigma_{pot}VR_{1}}{R_{pot}^{2}+R_{1}R_{pot}}$$
 \subsubsection{Current}
 Making the same assumptions and assignments as we did to calculate voltage transient, the transient current-controlling ability of the circuit during charge is directly determined by the internal resistance of the battery and can be written in either of two forms.
-$$\sigma_I = \frac{\sigma_V}{R_{batt}} = \frac{V\sqrt{\left(V\cdot e_{LDO}\right)^{2}+\frac{R_{1}^2}{R_{pot}^2}\left(e_{res}^{2}+\left(\frac{\sigma_{pot}}{R_{pot}}\right)^{2}\right)+\sigma_{Amm}^2}}{R_{batt}}$$
-$$\sigma_I = \frac{\sigma_V}{R_{batt}} = \frac{V\sqrt{\sigma_{LDO}^{2}+\frac{R_{1}^2}{R_{pot}^2}\left(e_{res}^{2}+\left(\frac{\sigma_{pot}}{R_{pot}}\right)^{2}\right)+\sigma_{Amm}^2}}{R_{batt}}$$
+$$\sigma_I = \frac{\sigma_V}{R_{batt}} = \frac{\sqrt{\left(V\cdot e_{LDO}\right)^{2}+\frac{R_{1}^2}{R_{pot}^2}\left(e_{res}^{2}+\left(\frac{\sigma_{pot}}{R_{pot}}\right)^{2}\right)+\sigma_{Amm}^2}}{R_{batt}}$$
+$$\sigma_I = \frac{\sigma_V}{R_{batt}} = \frac{\sqrt{\sigma_{LDO}^{2}+\frac{R_{1}^2}{R_{pot}^2}\left(e_{res}^{2}+\left(\frac{\sigma_{pot}}{R_{pot}}\right)^{2}\right)+\sigma_{Amm}^2}}{R_{batt}}$$
 The sustained current-controlling ability of the circuit during charge is approximately determined by the hysteresis of the battery voltage. We assume that the voltage drop due to the internal resistance of the battery is dominated by the voltage drop due to hysteresis to simplify our calculation.\\
 We represent the current through the battery as $I_{batt}$ and the voltage sag as $V_{sag}$.
-$$\sigma_I = \frac{\delta I_{batt}}{\delta V_{sag}}\cdot \sigma_V = \frac{\delta I_{batt}}{\delta V_{sag}}\cdot \frac{\sigma_{pot}V_{out}^{2}R_{1}}{R_{pot}^{2}+R_{1}R_{pot}}$$
+$$\sigma_I = \frac{\delta I_{batt}}{\delta V_{sag}}\cdot \sigma_V = \frac{\delta I_{batt}}{\delta V_{sag}}\cdot \frac{\sigma_{pot}VR_{1}}{R_{pot}^{2}+R_{1}R_{pot}}$$
 In the case that the internal resistance term becomes significant and cannot be neglected, we  instead write the form
-$$\sigma_I = \frac{\frac{\delta I_{batt}}{\delta V_{sag}}}{R\frac{\delta I_{batt}}{\delta V_{sag}}+1}\cdot \sigma_V = \frac{\frac{\delta I_{batt}}{\delta V_{sag}}}{R\frac{\delta I_{batt}}{\delta V_{sag}}+1}\cdot \frac{\sigma_{pot}V_{out}^{2}R_{1}}{R_{pot}^{2}+R_{1}R_{pot}}$$
+$$\sigma_I = \frac{\frac{\delta I_{batt}}{\delta V_{sag}}}{R\frac{\delta I_{batt}}{\delta V_{sag}}+1}\cdot \sigma_V = \frac{\frac{\delta I_{batt}}{\delta V_{sag}}}{R\frac{\delta I_{batt}}{\delta V_{sag}}+1}\cdot \frac{\sigma_{pot}VR_{1}}{R_{pot}^{2}+R_{1}R_{pot}}$$
 \subsection{Precision for Standard Measurements}
-\subsubsection{SoC Measurement Precision}
-\subsubsection{Voltage Sag Measurement Precision}
-\subsubsection{Leakage Current Measurement Precision}
-\subsubsection{Internal Resistance Measurement Precision}
-\subsection{Simulation and Monitoring of  Environmental Effects}
+\subsubsection{Capacity}
+\subsubsection{SoC}
+State of charge measurement is calibrated via voltage at the endpoints and tracked in-between using a scaled coulomb counter. The error in calibration at each end is
+$$\left.\sigma_V \cdot \frac{\delta SoC}{\delta V}\right\vert_{V_{end}}$$
+and the total error due to the scaled coulomb counter is added to by a factor related to this. The error at each step in the coulomb counter
+\subsubsection{Voltage Sag}
+The voltage sag for a certain sustained current flow can be determined based on the value to which internal resistance appears to converge over time. After a measurement is taken, the battery is abruptly cutoff from charging or discharging, and the rest voltage is measured.\\
+The voltage measurement error is $\sigma_V$.\\
+The current measurement error is $\sigma_I$.\\
+The sag voltage itself is $V_{sag}$, and the battery voltage is $V_{batt}$.\\
+The current passed through the battery is $I$.\\
+The error in internal resistance knowledge is $\sigma_{IR}$.\\
+The total error is
+$$I\sqrt{\sigma_{IR}^2 + \sigma_V\cdot\left.\frac{\delta V_{batt}}{\delta V_{sag}}\right\vert_{V_{batt}}^2 + 4\sigma_V^2 + V_{sag}^2\frac{\sigma_I^2}{I^2}}$$
+\subsubsection{Leakage Current}
+Leakage current is measured by keeping the battery at a constant voltage with no load over a long period of time. Although voltage changes are small, over time the error in them averages out through, and we can consider just the average current over time. Because the voltage must be held constant to measure leakage current, so that voltage sag is stable, we can average as many samples as we wish. Therefore, we calculate the error using the parameters below.\\
+The time for which the current is sampled is $t_{meas}$.\\
+The time each current sample from the current sensor takes is $t_{samp}$.\\
+The error in each sample is $\sigma_{I}$.\\
+The overall error is
+$$\sqrt{\frac{t_{samp}}{t_{meas}}}\sigma{I}$$
+\subsubsection{Internal Resistance}
+The internal resistance for a certain sustained current flow can be determined by measuring the transient voltage drop as current is first drawn from the battery.\\
+The voltage measurement error is $\sigma_V$.\\
+The current measurement error is $\sigma_I$.\\
+The current passed through the battery is $I$.\\
+The actual internal resistance value is $R$.\\
+$$\frac{R}{I}\sqrt{4\frac{\sigma_V^2}{R^2} + \sigma_I^2}$$
+\subsection{Simulation and Monitoring of Environmental Effects}
 \subsubsection{Temperature}
 None
 \subsubsection{Vibration}

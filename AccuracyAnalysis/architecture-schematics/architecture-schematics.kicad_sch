@@ -153,6 +153,18 @@
     (uuid e390802b-3d03-43d2-b8f7-c1dccc8779d7)
   )
 
+  (sheet (at 104.14 13.97) (size 87.63 58.42) (fields_autoplaced)
+    (stroke (width 0.1524) (type solid) (color 0 0 0 0))
+    (fill (color 0 0 0 0.0000))
+    (uuid 2990165e-78a7-45c3-9269-a386bf551939)
+    (property "Sheet name" "Naive Current Desensitized Architecture" (id 0) (at 104.14 13.2584 0)
+      (effects (font (size 1.27 1.27)) (justify left bottom))
+    )
+    (property "Sheet file" "naive-current-desensitized-architecture.kicad_sch" (id 1) (at 104.14 72.9746 0)
+      (effects (font (size 1.27 1.27)) (justify left top))
+    )
+  )
+
   (sheet (at 13.97 13.97) (size 87.63 58.42) (fields_autoplaced)
     (stroke (width 0.1524) (type solid) (color 0 0 0 0))
     (fill (color 0 0 0 0.0000))
@@ -168,53 +180,102 @@
   (sheet_instances
     (path "/" (page "1"))
     (path "/997b7e04-2ad8-4b2b-b19c-6c232748bb03" (page "2"))
+    (path "/2990165e-78a7-45c3-9269-a386bf551939" (page "3"))
   )
 
   (symbol_instances
     (path "/997b7e04-2ad8-4b2b-b19c-6c232748bb03/0b7eed36-8f37-448c-98a6-e623bbdd1d37"
       (reference "#PWR?") (unit 1) (value "Earth") (footprint "")
     )
+    (path "/2990165e-78a7-45c3-9269-a386bf551939/0b7eed36-8f37-448c-98a6-e623bbdd1d37"
+      (reference "#PWR?") (unit 1) (value "Earth") (footprint "")
+    )
     (path "/997b7e04-2ad8-4b2b-b19c-6c232748bb03/1531f949-c0b1-46a2-b65a-2533148bd755"
+      (reference "#PWR?") (unit 1) (value "Earth") (footprint "")
+    )
+    (path "/2990165e-78a7-45c3-9269-a386bf551939/1531f949-c0b1-46a2-b65a-2533148bd755"
       (reference "#PWR?") (unit 1) (value "Earth") (footprint "")
     )
     (path "/997b7e04-2ad8-4b2b-b19c-6c232748bb03/8daef6ac-8f87-4272-8463-1f1a9f8be54e"
       (reference "#PWR?") (unit 1) (value "Earth") (footprint "")
     )
+    (path "/2990165e-78a7-45c3-9269-a386bf551939/8daef6ac-8f87-4272-8463-1f1a9f8be54e"
+      (reference "#PWR?") (unit 1) (value "Earth") (footprint "")
+    )
     (path "/997b7e04-2ad8-4b2b-b19c-6c232748bb03/ad2e765e-c0db-47cb-b783-462d6881ee4c"
+      (reference "#PWR?") (unit 1) (value "Earth") (footprint "")
+    )
+    (path "/2990165e-78a7-45c3-9269-a386bf551939/ad2e765e-c0db-47cb-b783-462d6881ee4c"
       (reference "#PWR?") (unit 1) (value "Earth") (footprint "")
     )
     (path "/997b7e04-2ad8-4b2b-b19c-6c232748bb03/eed56215-1ab5-4466-8b28-1d4d1efda5cf"
       (reference "#PWR?") (unit 1) (value "Earth") (footprint "")
     )
+    (path "/2990165e-78a7-45c3-9269-a386bf551939/eed56215-1ab5-4466-8b28-1d4d1efda5cf"
+      (reference "#PWR?") (unit 1) (value "Earth") (footprint "")
+    )
     (path "/997b7e04-2ad8-4b2b-b19c-6c232748bb03/02c0c6b2-0418-468b-bd64-2293078a00ec"
-      (reference "A0") (unit 1) (value "Arduino_UNO_R3") (footprint "Module:Arduino_UNO_R3")
+      (reference "A1") (unit 1) (value "Arduino_UNO_R3") (footprint "Module:Arduino_UNO_R3")
+    )
+    (path "/2990165e-78a7-45c3-9269-a386bf551939/02c0c6b2-0418-468b-bd64-2293078a00ec"
+      (reference "A2") (unit 1) (value "Arduino_UNO_R3") (footprint "Module:Arduino_UNO_R3")
     )
     (path "/997b7e04-2ad8-4b2b-b19c-6c232748bb03/7d4b5881-5b44-4eee-9597-5915739caf4b"
       (reference "BT1") (unit 1) (value "Battery_Cell") (footprint "")
     )
+    (path "/2990165e-78a7-45c3-9269-a386bf551939/7d4b5881-5b44-4eee-9597-5915739caf4b"
+      (reference "BT2") (unit 1) (value "Battery_Cell") (footprint "")
+    )
     (path "/997b7e04-2ad8-4b2b-b19c-6c232748bb03/58d11641-1522-42ac-a107-730ac47b6bea"
       (reference "D1") (unit 1) (value "DIODE") (footprint "")
     )
-    (path "/997b7e04-2ad8-4b2b-b19c-6c232748bb03/d3fc3360-ffa1-4769-b5ba-f6837dd1d2c3"
-      (reference "MES1") (unit 1) (value "Voltmeter_DIO") (footprint "")
+    (path "/2990165e-78a7-45c3-9269-a386bf551939/58d11641-1522-42ac-a107-730ac47b6bea"
+      (reference "D2") (unit 1) (value "DIODE") (footprint "")
     )
     (path "/997b7e04-2ad8-4b2b-b19c-6c232748bb03/6c0a5bf4-2acc-41a5-83d9-48e179906cd3"
-      (reference "MES2") (unit 1) (value "Ammeter_DIO") (footprint "")
+      (reference "MESA1") (unit 1) (value "Ammeter_DIO") (footprint "")
+    )
+    (path "/2990165e-78a7-45c3-9269-a386bf551939/6c0a5bf4-2acc-41a5-83d9-48e179906cd3"
+      (reference "MESA2") (unit 1) (value "Ammeter_DIO") (footprint "")
+    )
+    (path "/997b7e04-2ad8-4b2b-b19c-6c232748bb03/d3fc3360-ffa1-4769-b5ba-f6837dd1d2c3"
+      (reference "MESV1") (unit 1) (value "Voltmeter_DIO") (footprint "")
+    )
+    (path "/2990165e-78a7-45c3-9269-a386bf551939/d3fc3360-ffa1-4769-b5ba-f6837dd1d2c3"
+      (reference "MESV2") (unit 1) (value "Voltmeter_DIO") (footprint "")
     )
     (path "/997b7e04-2ad8-4b2b-b19c-6c232748bb03/7aca665c-4360-418d-ab13-83801d1d2549"
+      (reference "Q1") (unit 1) (value "Q_NMOS_GDS") (footprint "")
+    )
+    (path "/2990165e-78a7-45c3-9269-a386bf551939/7aca665c-4360-418d-ab13-83801d1d2549"
       (reference "Q2") (unit 1) (value "Q_NMOS_GDS") (footprint "")
     )
-    (path "/997b7e04-2ad8-4b2b-b19c-6c232748bb03/a61f526c-ecbc-4eb6-981f-f3db5b9ff351"
-      (reference "R1") (unit 1) (value "digipot") (footprint "")
-    )
     (path "/997b7e04-2ad8-4b2b-b19c-6c232748bb03/cf645ff9-6cea-4ed4-b081-fed77e09b77a"
-      (reference "R2") (unit 1) (value "digipot") (footprint "")
+      (reference "RAdjCharge1") (unit 1) (value "digipot") (footprint "")
+    )
+    (path "/2990165e-78a7-45c3-9269-a386bf551939/cf645ff9-6cea-4ed4-b081-fed77e09b77a"
+      (reference "RAdjCharge2") (unit 1) (value "digipot") (footprint "")
+    )
+    (path "/997b7e04-2ad8-4b2b-b19c-6c232748bb03/a61f526c-ecbc-4eb6-981f-f3db5b9ff351"
+      (reference "RAdjDisch1") (unit 1) (value "digipot") (footprint "")
+    )
+    (path "/2990165e-78a7-45c3-9269-a386bf551939/a61f526c-ecbc-4eb6-981f-f3db5b9ff351"
+      (reference "RAdjDisch2") (unit 1) (value "digipot") (footprint "")
+    )
+    (path "/2990165e-78a7-45c3-9269-a386bf551939/42d11911-9117-44f7-8a71-dabf9810d1af"
+      (reference "RDesen2") (unit 1) (value "R_US") (footprint "")
     )
     (path "/997b7e04-2ad8-4b2b-b19c-6c232748bb03/d76bdea3-97cc-4959-9685-e44670408d27"
-      (reference "R3") (unit 1) (value "R_US") (footprint "")
+      (reference "RfixedDiv2") (unit 1) (value "R_US") (footprint "")
+    )
+    (path "/2990165e-78a7-45c3-9269-a386bf551939/d76bdea3-97cc-4959-9685-e44670408d27"
+      (reference "RfixedDiv2") (unit 1) (value "R_US") (footprint "")
     )
     (path "/997b7e04-2ad8-4b2b-b19c-6c232748bb03/3097f818-ff13-4732-9d62-f32007c55fcf"
       (reference "U1") (unit 1) (value "Adjustable_LDO") (footprint "")
+    )
+    (path "/2990165e-78a7-45c3-9269-a386bf551939/3097f818-ff13-4732-9d62-f32007c55fcf"
+      (reference "U2") (unit 1) (value "Adjustable_LDO") (footprint "")
     )
   )
 )
