@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP LT3741EFE#PBF
+D Linear Technology, LT3741EFE#PBF Step-Down Switching Regulator 20A, 0  34 V, 20-Pin TSSOP
+K
+F https://www.analog.com/media/en/technical-documentation/data-sheets/37411fg.pdf
+$ENDCMP
+#
+#End Doc Library

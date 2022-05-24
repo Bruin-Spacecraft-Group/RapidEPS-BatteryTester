@@ -1,4 +1,5 @@
 (sym_lib_table
   (lib (name "digipot")(type "Legacy")(uri "${KIPRJMOD}/ul_ISL95810UIU8Z/KiCAD/2022-05-20_07-37-49/2022-05-20_07-37-49.lib")(options "")(descr ""))
   (lib (name "buck")(type "Legacy")(uri "${KIPRJMOD}/ul_MIC2169BYMME-TR/KiCAD/2022-05-20_08-01-07/2022-05-20_08-01-07.lib")(options "")(descr ""))
+  (lib (name "0805cap")(type "Legacy")(uri "${KIPRJMOD}/C-0805/S-0805.lib")(options "")(descr ""))
 )
