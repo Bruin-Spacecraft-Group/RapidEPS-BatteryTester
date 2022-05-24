@@ -418,6 +418,10 @@
     [
       "997b7e04-2ad8-4b2b-b19c-6c232748bb03",
       "Naive Architecture"
+    ],
+    [
+      "2990165e-78a7-45c3-9269-a386bf551939",
+      "Naive Current Desensitized Architecture"
     ]
   ],
   "text_variables": {}
