@@ -1,5 +1,10 @@
 (sym_lib_table
-  (lib (name "digipot")(type "Legacy")(uri "${KIPRJMOD}/ul_ISL95810UIU8Z/KiCAD/2022-05-20_07-37-49/2022-05-20_07-37-49.lib")(options "")(descr ""))
-  (lib (name "buck")(type "Legacy")(uri "${KIPRJMOD}/ul_MIC2169BYMME-TR/KiCAD/2022-05-20_08-01-07/2022-05-20_08-01-07.lib")(options "")(descr ""))
-  (lib (name "0805cap")(type "Legacy")(uri "${KIPRJMOD}/C-0805/S-0805.lib")(options "")(descr ""))
+  (lib (name "Battery Tester Symbols")(type "KiCad")(uri "${KIPRJMOD}/ProjectComponents/symbols.kicad_sym")(options "")(descr ""))
+  (lib (name "2022-05-28_05-57-51")(type "KiCad")(uri "${KIPRJMOD}/ProjectComponents/substitutes/TPH3R704PC,LQ/2022-05-28_05-57-51.kicad_sym")(options "")(descr ""))
+  (lib (name "2022-05-28_05-53-57")(type "KiCad")(uri "${KIPRJMOD}/ProjectComponents/substitutes/RG3216P-3304-B-T1/2022-05-28_05-53-57.kicad_sym")(options "")(descr ""))
+  (lib (name "2022-05-28_06-01-26")(type "KiCad")(uri "${KIPRJMOD}/ProjectComponents/substitutes/GRT21BR61C226ME13L/2022-05-28_06-01-26.kicad_sym")(options "")(descr ""))
+  (lib (name "2022-05-28_06-12-12")(type "KiCad")(uri "${KIPRJMOD}/ProjectComponents/substitutes/107KXM050M/2022-05-28_06-12-12.kicad_sym")(options "")(descr ""))
+  (lib (name "2022-05-28_06-18-55")(type "KiCad")(uri "${KIPRJMOD}/ProjectComponents/substitutes/TLR3A10KR0025FTDG/2022-05-28_06-18-55.kicad_sym")(options "")(descr ""))
+  (lib (name "2022-05-28_06-14-30")(type "KiCad")(uri "${KIPRJMOD}/ProjectComponents/substitutes/VS-EPU6006L-N3/2022-05-28_06-14-30.kicad_sym")(options "")(descr ""))
+  (lib (name "2022-05-28_06-16-12")(type "KiCad")(uri "${KIPRJMOD}/ProjectComponents/substitutes/FHS-A7015S61/2022-05-28_06-16-12.kicad_sym")(options "")(descr ""))
 )
